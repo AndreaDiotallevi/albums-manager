@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const albums = require('./routes/api/albums')
 
 const app = express();
+app.use(express.json());
 
 // DB Config
 const db = require('./config/keys').mongoURI;
