@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const albums = require('./routes/api/albums')
+
 const app = express();
 
 // DB Config
@@ -11,6 +13,9 @@ mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
+
+// Use Routes
+app.use('/api/albums', albums);
 
 const port = process.env.PORT || 5000;
 
