@@ -4,11 +4,6 @@ import Album from './Album';
 import mockAxios from 'axios';
 const lastFmApiKey = require('../../config/keys').lastFmApiKey;
 
-const setUp = (Component, props = {}) => {
-  const component = shallow(<Component {...props} />);
-  return component;
-};
-
 describe('Album', () => {
   it('should fetch the album info', async () => {
     const albumData = {
