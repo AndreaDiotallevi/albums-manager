@@ -6,6 +6,7 @@
   "scripts": {
     "client-install": "npm install --prefix client",
     "test": "jest --detectOpenHandles --watch",
+    "client-test": "npm test --prefix client",
     "start": "node start.js",
     "server": "nodemon start.js",
     "client": "npm start --prefix client",
@@ -24,6 +25,10 @@
     "supertest": "^4.0.2"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/client/"
+    ]
   }
 }
