@@ -5,15 +5,30 @@ import Albums from './components/Albums/Albums';
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Route exact path='/' component={Home}></Route>
-        <Route exact path='/albums' component={Albums}></Route>
-      </BrowserRouter>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      albums: [
+        { artist: 'Tycho', title: 'Awake' },
+        { artist: 'Kiasmos', title: 'Blurred' }
+      ]
+    }
+  }
+
+    render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Route exact path='/' component={Home}></Route>
+          <Route path="/albums" render={(routeProps) => (
+            <Albums {...routeProps} albums={this.state.albums}/>
+            )}
+          />
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
