@@ -2,12 +2,12 @@ const app = require('../../server');
 const supertest = require('supertest');
 const request = supertest(app);
 const mongoose = require('mongoose');
-const Album = require('../../models/Album')
+const Album = require('../../models/Album');
 
 beforeAll(async () => {
-  const url = `mongodb://127.0.0.1/albums-manager`
-  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-})
+  const url = `mongodb://127.0.0.1/albums-manager`;
+  await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+});
 
 describe('/api/albums', () => {
   it('should get an empty array', async done => {
@@ -17,7 +17,7 @@ describe('/api/albums', () => {
     expect(response.body).toEqual([]);
 
     done();
-  })
+  });
 
   it('should save an album to database', async done => {
     const response = await request.post('/api/albums')
@@ -46,8 +46,8 @@ describe('/api/albums', () => {
     }]
 
     for (const albumData of albums) {
-      const album = new Album(albumData)
-      await album.save()
+      const album = new Album(albumData);
+      await album.save();
     }
 
     const response = await request.get('/api/albums');
@@ -66,9 +66,9 @@ describe('/api/albums', () => {
     expect(response.body[1].loanedDate).toEqual(null);
 
     done();
-  })
+  });
 });
 
 afterEach(async () => {
-  await Album.deleteMany()
-})
+  await Album.deleteMany();
+});
