@@ -8,11 +8,6 @@ const setUp = (Component, props = {}) => {
 };
 
 describe('Albums', () => {
-  it('should render without errors', () => {
-    const wrapper = setUp(Albums, { albums: [] });
-    expect(wrapper.exists()).toEqual(true);
-  });
-
   it('should render the title YOUR ALBUMS', () => {
     const wrapper = setUp(Albums, { albums: [] });
     const h1 = wrapper.find("[data-test='albums-page-title']");

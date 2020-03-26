@@ -8,11 +8,6 @@ const setUp = (Component, props = {}) => {
 };
 
 describe('Home', () => {
-  it('should render without errors', () => {
-    const wrapper = setUp(Home, {});
-    expect(wrapper.exists()).toEqual(true);
-  });
-
   it("should render the title ALBUMS MANAGER", () => {
     const wrapper = setUp(Home, {});
     const h1 = wrapper.find("[data-test='home-page-title']");
