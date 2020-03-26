@@ -1,22 +1,25 @@
 {
-  "name": "albums-tracker",
+  "name": "albums-manager",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "test": "jest --detectOpenHandles --watch",
     "start": "node start.js",
-    "server": "nodemon start.js"
+    "server": "nodemon start.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Andrea Diotallevi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.6"
   },
   "devDependencies": {
-    "jest": "^25.2.0",
+    "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   },
