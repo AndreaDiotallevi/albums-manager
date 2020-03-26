@@ -24,4 +24,9 @@ router.post('/', (req, res) => {
   newAlbum.save().then(album => res.json(album));
 })
 
+router.get('/test', (req, res) => {
+  res.json({message: 'pass!'})
+})
+
+
 module.exports = router;
