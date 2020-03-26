@@ -23,5 +23,4 @@ jobs: # a collection of steps
             - ./client/node_modules
       - run: # run tests
           name: test
-          command: npm run client-test -- --coverage
-          
+          command: npm run client-test
