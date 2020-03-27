@@ -24,9 +24,7 @@ describe('AlbumInput', () => {
         artist: 'Tycho',
         name: 'Awake',
         image: [null, null, null, null, { '#text': 'url' }],
-        tracks: {
-          track: [{ name: 'Awake' }]
-        }
+        tracks: { track: [{ name: 'Awake' }] }
       }
     }
 
