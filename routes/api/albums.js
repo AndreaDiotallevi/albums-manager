@@ -18,7 +18,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newAlbum = new Album({
     artist: req.body.artist,
-    title: req.body.title
+    title: req.body.title,
+    posterURL: req.body.posterURL,
+    tracks: req.body.tracks
   })
 
   newAlbum.save().then(album => res.json(album));

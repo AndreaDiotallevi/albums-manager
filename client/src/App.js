@@ -15,7 +15,11 @@ class App extends React.Component {
     };
   };
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.fetchAlbums();
+  }
+
+  fetchAlbums = async () => {
     await axios.get('/api/albums')
     .then(res => {
       this.setState({ albums: res.data })
@@ -28,7 +32,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Route exact path='/' component={Home} />
           <Route exact path="/albums" render={(routeProps) => (
-            <Albums {...routeProps} albums={this.state.albums}/>
+            <Albums {...routeProps} albums={this.state.albums} updateAlbums={this.fetchAlbums}/>
             )}
           />
           <Route path='/albums/:artist/:title' component={Album} />

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AlbumInput from '../AlbumInput/AlbumInput'
 
 function Albums(props) {
   return (
     <div>
       <h1 data-test='albums-page-title'>YOUR ALBUMS</h1>
+      <AlbumInput updateAlbums={props.updateAlbums}/>
       <ul>
       {props.albums.map((album, index) => (
         <li key={index} className='album'>

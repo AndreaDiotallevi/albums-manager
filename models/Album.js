@@ -11,6 +11,14 @@ const Album = new Schema({
     type: String,
     required: true
   },
+  posterURL: {
+    type: String,
+    required: true
+  },
+  tracks: {
+    type: Array,
+    required: true
+  },
   loanedTo: {
     type: String,
     default: null
