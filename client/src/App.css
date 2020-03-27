@@ -1,4 +1,3 @@
-
 * {
   font-family: 'Work Sans', sans-serif;
   font-weight: 300;
@@ -6,4 +5,73 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 16px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Album List */
+
+#album-list-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.albums-page-title {
+  font-size: 35px;
+  font-weight: 500;
+  padding: 20px 0;
+}
+
+#album-list-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  width: 1030px;
+}
+
+.album-link {
+  text-decoration: none;
+  color: black;
+}
+
+.album {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  list-style-type: none;
+  margin-bottom: 60px;
+}
+
+.album-poster {
+  height: 330px;
+  width: 100%;
+}
+
+.album-poster:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+.album-info {
+  display: flex;
+  margin-top: 10px;
+}
+
+.album-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-right: 5px;
+}
+
+.album-artist {
+  text-transform: lowercase;
+  padding-left: 5px;
 }

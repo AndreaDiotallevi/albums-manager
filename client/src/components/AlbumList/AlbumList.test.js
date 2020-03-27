@@ -11,10 +11,11 @@ describe('AlbumList', () => {
   });
 
   it('should render the album title and artist', () => {
-    const props = { albums: [{ artist: 'Tycho', title: 'Awake' }] };
+    const props = { albums: [{ artist: 'Tycho', title: 'Awake', posterURL: 'url' }] };
     const wrapper = shallow(<AlbumList {...props} />);
 
     expect(wrapper.find("[data-test='album-title']").text()).toEqual('Awake');
     expect(wrapper.find("[data-test='album-artist']").text()).toEqual('Tycho');
+    expect(wrapper.find("[data-test='album-poster']").props().src).toEqual('url');
   })
 });

@@ -4,15 +4,19 @@ import AlbumInput from '../AlbumInput/AlbumInput'
 
 const AlbumList = (props) => {
   return (
-    <div>
-      <h1 data-test='albums-page-title'>YOUR ALBUMS</h1>
+    <div id='album-list-component'>
+      <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUMS</h1>
       <AlbumInput updateAlbums={props.updateAlbums}/>
-      <ul>
+      <ul id='album-list-container'>
       {props.albums.map(album => (
         <li key={`${album._id}`} className='album'>
           <Link to={`/albums/${album._id}`} className='album-link'>
-            <h2 data-test='album-title'>{album.title}</h2>
-            <h3 data-test='album-artist'>{album.artist}</h3>
+            <img data-test='album-poster' className='album-poster' src={`${album.posterURL}`} alt={`${album.title}-poster`}></img>
+            <div className='album-info'>
+              <p className='album-title' data-test='album-title'>{album.title}</p>
+              <p className='test'> | </p>
+              <p className='album-artist' data-test='album-artist'>{album.artist}</p>
+            </div>
           </Link>
         </li>
       ))}
