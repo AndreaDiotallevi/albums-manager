@@ -5,8 +5,13 @@ import mockAxios from 'axios';
 const lastFmApiKey = require('../../config/keys').lastFmApiKey;
 
 describe('AlbumInput', () => {
-  it('should', () => {
-    expect(2).toEqual(2);
+  it('should change the state artist from input field', () => {
+    const wrapper = shallow(<AlbumInput />);
+
+    const artistInputField = wrapper.find({ id: 'album-input-artist' });
+    artistInputField.simulate('change', { target: { value: 'Tycho' } });
+
+    expect(wrapper.state().artist).toEqual('Tycho');
   })
 
   // it('should fetch the album info', async () => {
