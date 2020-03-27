@@ -1,34 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Album from './Album';
-import mockAxios from 'axios';
 
 describe('Album', () => {
-  it('should fetch the album info', async () => {
-    const album = {
-      _id: 0,
-      artist: 'Tycho',
-      title: 'Awake',
-      posterURL: 'url',
-      tracks: ['Awake', 'Montana']
-    }
+  it('should render the album info', () => {
+    const props = {
+      albums: [{ _id: 0, artist: 'Tycho', title: 'Awake', posterURL: 'url', tracks: ['track'] }],
+      match: { params: { id: 0 } }
+    };
 
-    mockAxios.get.mockImplementationOnce(() => Promise.resolve({
-      data: album
-    }));
+    const wrapper = shallow(<Album {...props}/>);
 
-    const props = { match: { params: { id: '0' } } };
-
-    const wrapper = await shallow(<Album {...props}/>);
-
-    expect(wrapper.state()).toEqual({
-      artist: 'Tycho',
-      title: 'Awake',
-      posterURL: 'url',
-      tracks: ['Awake', 'Montana']
-    });
-
-    expect(mockAxios.get).toHaveBeenCalledTimes(1);
-    expect(mockAxios.get).toHaveBeenCalledWith('/api/albums/0');
+    expect(wrapper.find("[data-test='album-page-title']").text()).toEqual('Awake');
+    expect(wrapper.find("[data-test='album-page-artist']").text()).toEqual('Tycho');
+    expect(wrapper.find("[data-test='album-page-poster-url']").props().src).toEqual('url');
+    expect(wrapper.find("[data-test='album-page-track-list']").exists()).toEqual(true);
+    expect(wrapper.find("[data-test='album-page-track']").exists()).toEqual(true);
+    expect(wrapper.find("[data-test='album-page-track-name']").text()).toEqual('track');
   });
 });
