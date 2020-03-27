@@ -51,7 +51,7 @@ class AlbumInput extends React.Component {
         </label>
         <label>
           Title:
-          <input type='text' name='title' onChange={this.handleTitleChange}/>
+          <input id='album-input-title' type='text' name='title' onChange={this.handleTitleChange}/>
         </label>
         <button type='submit'>Add Album</button>
       </form>
