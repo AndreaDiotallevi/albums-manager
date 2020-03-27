@@ -9,7 +9,7 @@ const AlbumList = (props) => {
       <AlbumInput updateAlbums={props.updateAlbums}/>
       <ul>
       {props.albums.map(album => (
-        <li key={album._id} className='album'>
+        <li key={`${album._id}`} className='album'>
           <Link to={`/albums/${album._id}`} className='album-link'>
             <h2 data-test='album-title'>{album.title}</h2>
             <h3 data-test='album-artist'>{album.artist}</h3>
