@@ -19,6 +19,7 @@ class AlbumInput extends React.Component {
 
   handleAddAlbum = async event => {
     event.preventDefault();
+    console.log(event)
 
     await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
       .then(res => {
@@ -44,7 +45,7 @@ class AlbumInput extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleAddAlbum}>
+        <form id='album-input-form' onSubmit={this.handleAddAlbum}>
         <label>
           Artist:
           <input id='album-input-artist' type='text' name='artist' onChange={this.handleArtistChange}/>
