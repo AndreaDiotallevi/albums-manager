@@ -38,6 +38,7 @@ button:focus, input:focus {
   justify-content: center;
   width: 100%;
   background-color: rgb(175, 175, 175);
+  box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
 }
 
 #album-list-container {
@@ -64,12 +65,14 @@ button:focus, input:focus {
 .album-poster {
   height: 330px;
   width: 100%;
+  box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
 }
 
 .album-poster:hover {
   opacity: 0.8;
   text-decoration: underline;
   text-decoration-color: black;
+  transition: 0.3s;
 }
 
 .album-info {
@@ -81,6 +84,12 @@ button:focus, input:focus {
   text-transform: uppercase;
   font-weight: 500;
   padding-right: 5px;
+}
+
+.album-title:hover {
+  text-decoration: underline;
+  text-decoration-color: black;
+  transition: 0.3s;
 }
 
 .album-artist {
@@ -114,4 +123,11 @@ button:focus, input:focus {
   font-weight: 500;
   padding: 7px;
   text-transform: uppercase;
+  box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#album-input-button:hover {
+  color: black;
+  transition: 0.3s;
 }
