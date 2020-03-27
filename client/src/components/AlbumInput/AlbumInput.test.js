@@ -34,7 +34,16 @@ describe('AlbumInput', () => {
       data: albumData
     }));
 
-    const props = { updateAlbums: {} };
+    mockAxios.post.mockImplementationOnce(() => Promise.resolve({
+      data: [{
+        artist: 'Tycho',
+        title: 'Awake',
+        posterURL: 'url',
+        tracks: ['Awake']
+      }]
+    }))
+
+    const props = { updateAlbums: () => {} };
     const wrapper = await shallow(<AlbumInput {...props}/>);
     wrapper.setState({ artist: 'Tycho', title: 'Awake' });
 
@@ -44,8 +53,6 @@ describe('AlbumInput', () => {
     expect(mockAxios.get).toHaveBeenCalledTimes(1);
     expect(mockAxios.get).toHaveBeenCalledWith(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=Tycho&album=Awake&format=json`);
   });
-
-
 });
 
 afterEach(() => {    
