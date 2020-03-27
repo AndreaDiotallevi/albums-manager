@@ -26,9 +26,12 @@ router.post('/', (req, res) => {
   newAlbum.save().then(album => res.json(album));
 })
 
-router.get('/test', (req, res) => {
-  res.json({message: 'pass!'})
+// @route   GET api/albums/:artist/:title
+// @desc    Get An Album By Id
+// @access  Public
+router.get('/:id', (req, res) => {
+  Album.find({ _id: req.params.id })
+    .then(albums => res.json(albums[0]))
 })
-
 
 module.exports = router;

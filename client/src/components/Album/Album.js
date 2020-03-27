@@ -1,30 +1,27 @@
 import React from 'react';
 import axios from 'axios';
-const lastFmApiKey = require('../../config/keys').lastFmApiKey;
 
 class Album extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      artist: '',
-      title: '',
-      posterURL: '',
-      tracks: []
-    }
+    this.state = { artist: '', title: '', posterURL: '', tracks: [] };
+  };
+
+  componentDidMount() {
+    this.fetchAlbum();
   }
 
-  async componentDidMount() {
-    const artist = this.props.match.params.artist;
-    const title = this.props.match.params.title;
-    await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${artist}&album=${title}&format=json`)
-      .then(res => {
-        this.setState({
-          artist: res.data.album.artist,
-          title: res.data.album.name,
-          posterURL: res.data.album.image[4]['#text'],
-          tracks: res.data.album.tracks.track.map(track => track.name)
-        })
-      })
+  fetchAlbum = async () => {
+    const id = this.props.match.params.id;
+    await axios.get(`/api/albums/${id}`)
+    .then(res => {
+      this.setState({
+        artist: res.data.artist,
+        title: res.data.title,
+        posterURL: res.data.posterURL,
+        tracks: res.data.tracks
+      });
+    });
   }
 
   render() {
