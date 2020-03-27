@@ -5,7 +5,9 @@ import AlbumInput from '../AlbumInput/AlbumInput'
 const AlbumList = (props) => {
   return (
     <div id='album-list-component'>
-      <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUMS</h1>
+      <div className='header-container'>
+        <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUMS</h1>
+      </div>
       <AlbumInput updateAlbums={props.updateAlbums}/>
       <ul id='album-list-container'>
       {props.albums.map(album => (

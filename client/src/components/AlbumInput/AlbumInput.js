@@ -23,7 +23,7 @@ class AlbumInput extends React.Component {
     await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
       .then(async res => {
         if (res.data.message === 'Album not found') {
-          console.log('Album not found');
+          // console.log('Album not found');
           return
         } else {    
           const album = {
@@ -42,17 +42,17 @@ class AlbumInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='album-input-component'>
         <form id='album-input-form' onSubmit={this.handleAddAlbum}>
-        <label>
+        <label id='album-input-artist-label'>
           Artist:
           <input id='album-input-artist' type='text' name='artist' onChange={this.handleArtistChange}/>
         </label>
-        <label>
+        <label id='album-input-title-label'>
           Title:
           <input id='album-input-title' type='text' name='title' onChange={this.handleTitleChange}/>
         </label>
-        <button type='submit'>Add Album</button>
+        <button id='album-input-button' type='submit'>Add Album</button>
       </form>
       </div>
     );
