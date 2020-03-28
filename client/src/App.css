@@ -97,40 +97,61 @@ button:focus, input:focus {
   padding-left: 5px;
 }
 
-/* AlbumInput and LoadInput*/
+/* AlbumInput, LoadInput and ReturnInput */
 
-#album-input-component, #loan-input-component {
+#album-input-component, #loan-input-component, #return-input-component {
+  display: flex;
+  align-items: flex-start;
   margin-top: 50px;
+  height: 45px;
+}
+
+form {
+  display: flex;
+  align-items: flex-start;
+  height: 45px;
 }
 
 #album-input-artist, #album-input-title, #loan-input-name {
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-left: 10px;
   margin-right: 40px;
+  margin-bottom: 20px;
 }
 
 #album-input-artist-label, #loan-input-name-label {
   text-transform: uppercase;
   font-weight: 500;
+  padding: 5px;
 }
 
 #album-input-title-label {
   text-transform: lowercase;
 }
 
-#album-input-button, #loan-input-button {
+#album-input-button, #loan-input-button, #return-input-button {
   background-color: rgb(175, 175, 175);
   color: white;
   font-weight: 500;
-  padding: 7px;
+  padding: 5px;
   text-transform: uppercase;
   box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
 
-#album-input-button:hover, #loan-input-button:hover {
+#album-input-button:hover, #loan-input-button:hover, #return-input-button:hover {
   color: black;
   transition: 0.3s;
+}
+
+.loaned-to-text {
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.loaned-date-text {
+  margin-right: 40px;
+  padding: 5px;
 }
 
 /* Album */

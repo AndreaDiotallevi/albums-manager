@@ -39,7 +39,7 @@ class App extends React.Component {
           <Route
             path="/albums/:id"
             render={(routeProps) => (
-              <Album {...routeProps} albums={this.state.albums}/>
+              <Album {...routeProps} albums={this.state.albums} updateAlbum={this.fetchAlbums}/>
             )}
           />
         </BrowserRouter>

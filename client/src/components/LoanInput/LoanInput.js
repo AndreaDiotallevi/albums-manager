@@ -19,8 +19,7 @@ class LoanInput extends React.Component {
 
     await axios.patch(`/api/albums/${album._id}`, album)
       .then(res => {
-        console.log(res);
-        console.log("Album updated")
+        this.props.updateAlbum();
       }).catch(err => console.log(err));
   };
 
