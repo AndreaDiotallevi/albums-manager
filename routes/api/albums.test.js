@@ -7,6 +7,7 @@ const Album = require('../../models/Album');
 beforeAll(async () => {
   const url = `mongodb://127.0.0.1/albums-manager`;
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+  global.Date.now = jest.fn(() => new Date('2020-01-01T01:01:01Z').getTime())
 });
 
 describe('/api/albums', () => {
@@ -63,15 +64,15 @@ describe('/api/albums', () => {
     expect(response.status).toEqual(200);
     expect(response.body.length).toEqual(2);
 
-    expect(response.body[0].artist).toEqual("Tycho");
-    expect(response.body[0].title).toEqual("Awake");
+    expect(response.body[0].artist).toEqual('Tycho');
+    expect(response.body[0].title).toEqual('Awake');
     expect(response.body[0].posterURL).toEqual('url');
     expect(response.body[0].tracks).toEqual(['track']);
     expect(response.body[0].loanedTo).toEqual(null);
     expect(response.body[0].loanedDate).toEqual(null);
 
-    expect(response.body[1].artist).toEqual("Kiasmos");
-    expect(response.body[1].title).toEqual("Blurred");
+    expect(response.body[1].artist).toEqual('Kiasmos');
+    expect(response.body[1].title).toEqual('Blurred');
     expect(response.body[1].posterURL).toEqual('url');
     expect(response.body[1].tracks).toEqual(['track']);
     expect(response.body[1].loanedTo).toEqual(null);
@@ -80,11 +81,29 @@ describe('/api/albums', () => {
     done();
   });
 
-  it('should get an empty array', async done => {
-    const response = await request.get('/api/albums/?artist=Kiasmos');
+  it('should update an album', async done => {
+    const album = new Album({
+      artist: 'Tycho', 
+      title: 'Awake',
+      posterURL: 'url',
+      tracks: ['track']
+    });
+
+    await album.save();
+
+    const response = await request.patch(`/api/albums/${album._id}`)
+    .send({
+        artist: 'Tycho',
+        title: 'Awake',
+        posterURL: 'url',
+        tracks: ['track'],
+        loanedTo: 'name',
+        loanedDate: null
+      });
 
     expect(response.status).toEqual(200);
-    expect(response.body).toEqual([]);
+    expect(response.body.loanedTo).toEqual('name');
+    expect(response.body.loanedDate).toEqual('2020-01-01T01:01:01.000Z');
 
     done();
   });

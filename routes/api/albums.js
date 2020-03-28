@@ -33,17 +33,13 @@ router.post('/', (req, res) => {
   newAlbum.save().then(album => res.json(album));
 });
 
-router.put('/:id', (req, res) => {
-  Album.findByIdAndUpdate(req.params.id, {
-    artist: req.body.artist,
-    title: req.body.title,
-    posterURL: req.body.posterURL,
-    tracks: req.body.tracks,
-    loanedTo: req.body.loanedTo,
-    loanedDate: Date.now()
-  }).then(album => res.json(album));
+router.patch('/:id', async (req, res) => {
+  const album = await Album.findById(req.params.id);
 
+  album.loanedTo = req.body.loanedTo;
+  album.loanedDate = Date.now();
 
+  album.save().then(album => res.json(album));
 })
-
+ 
 module.exports = router;
