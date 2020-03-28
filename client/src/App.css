@@ -1,7 +1,6 @@
 * {
   font-family: 'Work Sans', sans-serif;
   font-weight: 300;
-  font-size: 15px;
   margin: 0;
   padding: 0;
   border: 0;
@@ -27,10 +26,11 @@ button:focus, input:focus {
 }
 
 .albums-page-title {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 500;
   padding: 20px 0;
   color: white;
+  /* text-transform: lowercase; */
 }
 
 .header-container {
@@ -105,7 +105,8 @@ button:focus, input:focus {
 
 #album-input-artist, #album-input-title {
   border-bottom: 1px solid rgb(175, 175, 175);
-  margin: 0 10px;
+  margin-left: 10px;
+  margin-right: 40px;
 }
 
 #album-input-artist-label {
@@ -130,4 +131,72 @@ button:focus, input:focus {
 #album-input-button:hover {
   color: black;
   transition: 0.3s;
+}
+
+/* Album */
+
+#album-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#album-component-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(175, 175, 175);
+  box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+.album-page-title {
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 20px 0;
+  color: white;
+  padding-right: 5px;
+}
+
+.album-page-artist {
+  font-size: 25px;
+  text-transform: lowercase;
+  padding: 20px 0;
+  color: white;
+  padding-left: 5px;
+}
+
+.text-separator {
+  color: white;
+  font-size: 25px;
+}
+
+#album-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 60px;
+  width: 1030px;
+}
+
+.track {
+  list-style-type: none;
+}
+
+.album-page-poster {
+  width: 50%;
+  margin-right: 30px;
+  box-shadow: 1px -1px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+#track-list {
+  width: 50%;
+}
+
+.tracks-header {
+  /* font-size: 25px; */
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }

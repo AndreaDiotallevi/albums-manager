@@ -13,7 +13,7 @@ describe('Album', () => {
 
     expect(wrapper.find("[data-test='album-page-title']").text()).toEqual('Awake');
     expect(wrapper.find("[data-test='album-page-artist']").text()).toEqual('Tycho');
-    expect(wrapper.find("[data-test='album-page-poster-url']").props().src).toEqual('url');
+    expect(wrapper.find("[data-test='album-page-poster']").props().src).toEqual('url');
     expect(wrapper.find("[data-test='album-page-track-name']").text()).toEqual('track');
   });
 });
