@@ -15,7 +15,7 @@ describe('LoanInput', () => {
 
   it('should handle the album loan', async () => {
     const props = {
-      album: { _id: 0, leanedTo: null },
+      album: { _id: 0, loanedTo: null },
       updateAlbum: () => {}
     };
 
@@ -26,7 +26,7 @@ describe('LoanInput', () => {
     form.simulate('submit', { preventDefault() {} });
 
     expect(mockAxios.patch).toHaveBeenCalledTimes(1);
-    expect(mockAxios.patch).toHaveBeenCalledWith('/api/albums/0', {'_id': 0, 'leanedTo': null, 'loanedTo': 'Andrea'});
+    expect(mockAxios.patch).toHaveBeenCalledWith('/api/albums/0', {'_id': 0, 'loanedTo': 'Andrea'});
   });
 });
 
