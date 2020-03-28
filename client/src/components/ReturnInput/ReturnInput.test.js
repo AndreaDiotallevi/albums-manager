@@ -19,7 +19,7 @@ describe('ReturnInput', () => {
     expect(mockAxios.patch).toHaveBeenCalledWith('/api/albums/0', {'_id': 0, 'loanedTo': null});
   });
 
-  it('should catch the error if the patch request is rejected', async () => {
+  it('should catch the error if the patch request is rejected', () => {
     mockAxios.patch.mockImplementationOnce(() => Promise.reject('error'));
 
     const props = {
@@ -30,7 +30,7 @@ describe('ReturnInput', () => {
 
     const mockedEvent = { preventDefault() {} };
 
-    await wrapper.instance().handleReturnAlbum(mockedEvent)
+    wrapper.instance().handleReturnAlbum(mockedEvent)
     .catch(e => {
       expect(e).toEqual('error');
     });

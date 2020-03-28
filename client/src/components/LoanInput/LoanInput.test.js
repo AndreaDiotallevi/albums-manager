@@ -13,13 +13,13 @@ describe('LoanInput', () => {
     expect(wrapper.state().name).toEqual('Andrea');
   })
 
-  it('should handle the album loan', async () => {
+  it('should handle the album loan', () => {
     const props = {
       album: { _id: 0, loanedTo: null },
       updateAlbum: () => {}
     };
 
-    const wrapper = await shallow(<LoanInput {...props}/>);
+    const wrapper = shallow(<LoanInput {...props}/>);
     wrapper.setState({ name: 'Andrea' });
 
     const form = wrapper.find({ id: 'loan-input-form' });
@@ -28,6 +28,23 @@ describe('LoanInput', () => {
     expect(mockAxios.patch).toHaveBeenCalledTimes(1);
     expect(mockAxios.patch).toHaveBeenCalledWith('/api/albums/0', {'_id': 0, 'loanedTo': 'Andrea'});
   });
+
+  it('should catch the error if the patch request is rejected', () => {
+    mockAxios.patch.mockImplementationOnce(() => Promise.reject('error'));
+
+    const props = {
+      album: { loanedTo: null }
+    };
+
+    const wrapper = shallow(<LoanInput {...props}/>);
+
+    const mockedEvent = { preventDefault() {} };
+
+    wrapper.instance().handleLoanAlbum(mockedEvent)
+    .catch(e => {
+      expect(e).toEqual('error');
+    });
+  })
 });
 
 afterEach(() => {    
