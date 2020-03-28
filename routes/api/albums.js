@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 // @desc    Create An Album
 // @access  Public
 router.post('/', (req, res) => {
+  console.log("Inside POST albums")
   const newAlbum = new Album({
     artist: req.body.artist,
     title: req.body.title,

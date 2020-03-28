@@ -23,17 +23,19 @@ class AlbumInput extends React.Component {
     await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
       .then(async res => {
         if (res.data.message === 'Album not found') {
-          // console.log('Album not found');
+          // console.log('Album not found.');
           return
         } else {    
+          // console.log("Album does exist.")
           const album = {
             artist: res.data.album.artist,
             title: res.data.album.name,
             posterURL: res.data.album.image[4]['#text'],
             tracks: res.data.album.tracks.track.map(track => track.name)
           }
-          await axios.post('./api/albums', album)
+          await axios.post('/api/albums', album)
             .then(res => {
+              console.log('Log response:', res)
               this.props.updateAlbums();
             }).catch(err => console.log(err));
         }
