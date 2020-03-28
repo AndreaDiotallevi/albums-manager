@@ -8,9 +8,16 @@ const Album = require('../../models/Album');
 // @desc    Get All Albums
 // @access  Public
 router.get('/', (req, res) => {
-  Album.find()
-    .then(albums => res.json(albums))
-})
+  let loanedTo = req.query.loanedTo;
+
+  if (loanedTo === undefined) {
+    Album.find()
+      .then(albums => res.json(albums))
+  } else {
+    Album.find({ loanedTo: loanedTo })
+      .then(albums => res.json(albums))
+  };
+});
 
 // @route   POST api/albums
 // @desc    Create An Album
@@ -21,17 +28,22 @@ router.post('/', (req, res) => {
     title: req.body.title,
     posterURL: req.body.posterURL,
     tracks: req.body.tracks
-  })
+  });
 
   newAlbum.save().then(album => res.json(album));
-})
+});
 
-// @route   GET api/albums/:artist/:title
-// @desc    Get An Album By Id
-// @access  Public
-router.get('/:id', (req, res) => {
-  Album.find({ _id: req.params.id })
-    .then(albums => res.json(albums[0]))
+router.put('/:id', (req, res) => {
+  Album.findByIdAndUpdate(req.params.id, {
+    artist: req.body.artist,
+    title: req.body.title,
+    posterURL: req.body.posterURL,
+    tracks: req.body.tracks,
+    loanedTo: req.body.loanedTo,
+    loanedDate: Date.now()
+  }).then(album => res.json(album));
+
+
 })
 
 module.exports = router;

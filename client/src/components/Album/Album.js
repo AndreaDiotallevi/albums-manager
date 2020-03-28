@@ -1,4 +1,5 @@
 import React from 'react';
+import LoanInput from '../LoanInput/LoanInput'
 
 const Album = (props) => {
   const album = props.albums.filter(album => album._id === props.match.params.id)[0];
@@ -10,6 +11,7 @@ const Album = (props) => {
         <p className='text-separator'> | </p>
         <h3 className='album-page-artist' data-test='album-page-artist'>{album.artist}</h3>
       </div>
+      <LoanInput />
       <div id='album-container'>
         <img className='album-page-poster' data-test='album-page-poster' src={`${album.posterURL}`} alt={`${album.title}-poster`}></img>
         <ul id='track-list'>

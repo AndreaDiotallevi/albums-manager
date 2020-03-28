@@ -79,6 +79,16 @@ describe('/api/albums', () => {
 
     done();
   });
+
+  it('should get an empty array', async done => {
+    const response = await request.get('/api/albums/?artist=Kiasmos');
+
+    expect(response.status).toEqual(200);
+    expect(response.body).toEqual([]);
+
+    done();
+  });
+
 });
 
 afterEach(async () => {
