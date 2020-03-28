@@ -10,7 +10,7 @@ const AlbumList = (props) => {
       </div>
       <AlbumInput updateAlbums={props.updateAlbums}/>
       <ul id='album-list-container'>
-      {props.albums.reverse().map(album => (
+      {props.albums.slice().reverse().map(album => (
         <li key={`${album._id}`} className='album'>
           <Link to={`/albums/${album._id}`} className='album-link'>
             <img data-test='album-poster' className='album-poster' src={`${album.posterURL}`} alt={`${album.title}-poster`}></img>
