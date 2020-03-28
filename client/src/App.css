@@ -127,6 +127,7 @@ form {
 
 #album-input-title-label {
   text-transform: lowercase;
+  padding: 5px;
 }
 
 #album-input-button, #loan-input-button, #return-input-button {
