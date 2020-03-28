@@ -17,6 +17,17 @@ describe('App', () => {
     expect(mockAxios.get).toHaveBeenCalledTimes(1);
     expect(mockAxios.get).toHaveBeenCalledWith('/api/albums');
   });
+
+  it('should catch the error if the get request is rejected', () => {
+    mockAxios.get.mockImplementationOnce(() => Promise.reject('error'));
+
+    const wrapper = shallow(<App />);
+
+    wrapper.instance().fetchAlbums()
+    .catch(e => {
+      expect(e).toEqual('error');
+    });
+  })
 });
 
 afterEach(() => {    
