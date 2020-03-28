@@ -97,19 +97,19 @@ button:focus, input:focus {
   padding-left: 5px;
 }
 
-/* AlbumInput*/
+/* AlbumInput and LoadInput*/
 
-#album-input-component {
+#album-input-component, #loan-input-component {
   margin-top: 50px;
 }
 
-#album-input-artist, #album-input-title {
+#album-input-artist, #album-input-title, #loan-input-name {
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-left: 10px;
   margin-right: 40px;
 }
 
-#album-input-artist-label {
+#album-input-artist-label, #loan-input-name-label {
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -118,7 +118,7 @@ button:focus, input:focus {
   text-transform: lowercase;
 }
 
-#album-input-button {
+#album-input-button, #loan-input-button {
   background-color: rgb(175, 175, 175);
   color: white;
   font-weight: 500;
@@ -128,7 +128,7 @@ button:focus, input:focus {
   cursor: pointer;
 }
 
-#album-input-button:hover {
+#album-input-button:hover, #loan-input-button:hover {
   color: black;
   transition: 0.3s;
 }
