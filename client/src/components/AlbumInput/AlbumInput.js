@@ -35,7 +35,6 @@ class AlbumInput extends React.Component {
           }
           await axios.post('/api/albums', album)
             .then(res => {
-              console.log('Log response:', res)
               this.props.updateAlbums();
             }).catch(err => console.log(err));
         }

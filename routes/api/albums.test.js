@@ -11,16 +11,14 @@ beforeAll(async () => {
 });
 
 describe('/api/albums', () => {
-  it('should get an empty array', async done => {
+  it('should get an empty array', async () => {
     const response = await request.get('/api/albums');
 
     expect(response.status).toEqual(200);
     expect(response.body).toEqual([]);
-
-    done();
   });
 
-  it('should save an album to database', async done => {
+  it('should save an album to database', async () => {
     const response = await request.post('/api/albums')
     .send({
         artist: 'Tycho',
@@ -37,11 +35,9 @@ describe('/api/albums', () => {
     expect(Array.from(album.tracks)).toEqual(['track']);
     expect(album.loanedTo).toEqual(null);
     expect(album.loanedDate).toEqual(null);
-
-    done();
   });
 
-  it('should get all albums that have been saved', async done => {
+  it('should get all albums that have been saved', async () => {
     const albums = [{
       artist: 'Tycho', 
       title: 'Awake',
@@ -77,11 +73,9 @@ describe('/api/albums', () => {
     expect(response.body[1].tracks).toEqual(['track']);
     expect(response.body[1].loanedTo).toEqual(null);
     expect(response.body[1].loanedDate).toEqual(null);
-
-    done();
   });
 
-  it('should update an album', async done => {
+  it('should update an album', async () => {
     const album = new Album({
       artist: 'Tycho', 
       title: 'Awake',
@@ -104,8 +98,6 @@ describe('/api/albums', () => {
     expect(response.status).toEqual(200);
     expect(response.body.loanedTo).toEqual('name');
     expect(response.body.loanedDate).toEqual('2020-01-01T01:01:01.000Z');
-
-    done();
   });
 
 });

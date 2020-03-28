@@ -4,13 +4,13 @@ import ReturnInput from './ReturnInput';
 import mockAxios from 'axios';
 
 describe('ReturnInput', () => {
-  it('should handle the album return', async () => {
+  it('should handle the album return', () => {
     const props = {
       album: { _id: 0, loanedTo: 'Andrea' },
       updateAlbum: () => {}
     };
 
-    const wrapper = await shallow(<ReturnInput {...props}/>);
+    const wrapper = shallow(<ReturnInput {...props}/>);
 
     const form = wrapper.find({ id: 'return-input-form' });
     form.simulate('submit', { preventDefault() {} });
@@ -18,6 +18,23 @@ describe('ReturnInput', () => {
     expect(mockAxios.patch).toHaveBeenCalledTimes(1);
     expect(mockAxios.patch).toHaveBeenCalledWith('/api/albums/0', {'_id': 0, 'loanedTo': null});
   });
+
+  it('should catch the error if the patch request is rejected', async () => {
+    mockAxios.patch.mockImplementationOnce(() => Promise.reject('error'));
+
+    const props = {
+      album: { loanedTo: 'Andrea' }
+    };
+
+    const wrapper = shallow(<ReturnInput {...props}/>);
+
+    const mockedEvent = { preventDefault() {} };
+
+    await wrapper.instance().handleReturnAlbum(mockedEvent)
+    .catch(e => {
+      expect(e).toEqual('error');
+    });
+  })
 });
 
 afterEach(() => {    
