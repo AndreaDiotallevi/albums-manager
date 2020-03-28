@@ -11,7 +11,7 @@ const Album = (props) => {
         <p className='text-separator'> | </p>
         <h3 className='album-page-artist' data-test='album-page-artist'>{album.artist}</h3>
       </div>
-      <LoanInput />
+      <LoanInput album={album}/>
       <div id='album-container'>
         <img className='album-page-poster' data-test='album-page-poster' src={`${album.posterURL}`} alt={`${album.title}-poster`}></img>
         <ul id='track-list'>
