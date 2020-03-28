@@ -23,13 +23,17 @@ describe('/api/albums', () => {
     const response = await request.post('/api/albums')
     .send({
         artist: 'Tycho',
-        title: 'Awake'
+        title: 'Awake',
+        posterURL: 'url',
+        tracks: ['track']
       });
 
-    const album = await Album.findOne({ artist: 'Tycho', title: 'Awake' });
+    const album = await Album.findOne({ artist: 'Tycho', title: 'Awake', posterURL: 'url', tracks: ['track'] });
     
     expect(album.artist).toEqual('Tycho');
     expect(album.title).toEqual('Awake');
+    expect(album.posterURL).toEqual('url');
+    expect(Array.from(album.tracks)).toEqual(['track']);
     expect(album.loanedTo).toEqual(null);
     expect(album.loanedDate).toEqual(null);
 
@@ -39,10 +43,14 @@ describe('/api/albums', () => {
   it('should get all albums that have been saved', async done => {
     const albums = [{
       artist: 'Tycho', 
-      title: 'Awake'
+      title: 'Awake',
+      posterURL: 'url',
+      tracks: ['track']
     }, {
       artist: 'Kiasmos', 
-      title: 'Blurred'
+      title: 'Blurred',
+      posterURL: 'url',
+      tracks: ['track']
     }]
 
     for (const albumData of albums) {
@@ -57,11 +65,15 @@ describe('/api/albums', () => {
 
     expect(response.body[0].artist).toEqual("Tycho");
     expect(response.body[0].title).toEqual("Awake");
+    expect(response.body[0].posterURL).toEqual('url');
+    expect(response.body[0].tracks).toEqual(['track']);
     expect(response.body[0].loanedTo).toEqual(null);
     expect(response.body[0].loanedDate).toEqual(null);
 
     expect(response.body[1].artist).toEqual("Kiasmos");
     expect(response.body[1].title).toEqual("Blurred");
+    expect(response.body[1].posterURL).toEqual('url');
+    expect(response.body[1].tracks).toEqual(['track']);
     expect(response.body[1].loanedTo).toEqual(null);
     expect(response.body[1].loanedDate).toEqual(null);
 
