@@ -18,4 +18,14 @@ describe('AlbumList', () => {
     expect(wrapper.find("[data-test='album-artist']").text()).toEqual('Tycho');
     expect(wrapper.find("[data-test='album-poster']").props().src).toEqual('url');
   })
+
+  it('should filter albums by loanedTo', () => {
+    const album1 = { artist: 'Tycho', loanedTo: 'Andrea' };
+    const album2 = { artist: 'Kiasmos', loanedTo: null };
+    const props = { albums: [album1, album2], location: { search: '?loanedTo=Andrea' } };
+
+    const wrapper = shallow(<AlbumList {...props} />);
+
+    expect(wrapper.find('.album-artist').text()).toEqual('Tycho');
+  })
 });
