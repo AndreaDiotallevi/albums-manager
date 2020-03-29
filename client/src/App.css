@@ -16,21 +16,20 @@ button:focus, input:focus {
   flex-direction: column;
 }
 
-/* Album List */
+/* Album List and Loan List*/
 
-#album-list-component {
+#album-list-component, #loan-list-component {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
-.albums-page-title {
+.albums-page-title, .loans-page-title {
   font-size: 25px;
   font-weight: 500;
   padding: 20px 0;
   color: white;
-  /* text-transform: lowercase; */
 }
 
 .header-container {
@@ -41,7 +40,7 @@ button:focus, input:focus {
   box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
 }
 
-#album-list-container {
+#album-list-container, #loan-list-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -104,6 +103,11 @@ button:focus, input:focus {
   align-items: flex-start;
   margin-top: 50px;
   height: 45px;
+  width: 1030px;
+}
+
+#loan-input-component {
+  margin-top: 10px;
 }
 
 form {
@@ -115,19 +119,29 @@ form {
 #album-input-artist, #album-input-title, #loan-input-name {
   border-bottom: 1px solid rgb(175, 175, 175);
   margin-left: 10px;
-  margin-right: 40px;
   margin-bottom: 20px;
 }
 
 #album-input-artist-label, #loan-input-name-label {
   text-transform: uppercase;
   font-weight: 500;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 #album-input-title-label {
   text-transform: lowercase;
-  padding: 5px;
+  padding: 5px 0;
+  margin-left: 40px;
+}
+
+label {
+  display: flex;
+  justify-content: stretch;
+  width: 230px;
+}
+
+input {
+  width: 230px;
 }
 
 #album-input-button, #loan-input-button, #return-input-button {
@@ -137,6 +151,7 @@ form {
   padding: 5px;
   text-transform: uppercase;
   box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
+  margin-left: 40px;
   cursor: pointer;
 }
 
@@ -147,12 +162,11 @@ form {
 
 .loaned-to-text {
   margin-right: 5px;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 .loaned-date-text {
-  margin-right: 40px;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 /* Album */

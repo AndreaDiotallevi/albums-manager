@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
-import Home from './components/Home/Home';
 import AlbumList from './components/AlbumList/AlbumList';
 import Album from './components/Album/Album'
 import axios from 'axios';
@@ -29,7 +28,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Route exact path='/' component={Home} />
+          <Route
+            exact path="/">
+            {<Redirect to="/albums" />}
+          </Route>
           <Route
             exact path="/albums"
             render={(routeProps) => (
