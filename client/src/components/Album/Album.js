@@ -6,13 +6,6 @@ import ReturnInput from '../ReturnInput/ReturnInput'
 
 const Album = (props) => {
   const album = props.albums.filter(album => album._id === props.match.params.id)[0];
-  // const albumId = props.location.pathname.split('/').slice(-1)[0];
-  // const album = props.albums.filter(album => album._id === albumId);
-  // console.log(props)
-  // console.log(albumId)
-  console.log(props);
-  console.log(album);
-
 
   return (
     <div id='album-component'>
