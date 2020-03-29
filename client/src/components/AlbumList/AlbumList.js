@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import AlbumInput from '../AlbumInput/AlbumInput'
 import LoanFilter from '../LoanFilter/LoanFilter'
 import queryString from 'query-string'
@@ -17,9 +18,16 @@ const AlbumList = (props) => {
 
   return (
     <div id='album-list-component'>
-      {/* <div className='header-container'>
-        <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUM MANAGER</h1>
-      </div> */}
+      <div className='header-container'>
+        <div className='navbar'>
+          <div className='navbar-left'>
+            <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUM MANAGER</h1>
+          </div>
+          <div className='navbar-right'>
+            <Link to='/albums' className='navbar-link'>ALBUMS</Link>
+          </div>
+        </div>
+      </div>
       <AlbumInput updateAlbums={props.updateAlbums}/>
       <LoanFilter history={props.history}/>
       <ul id='album-list-container'>

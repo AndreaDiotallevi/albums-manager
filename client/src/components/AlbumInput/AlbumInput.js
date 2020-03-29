@@ -34,6 +34,7 @@ class AlbumInput extends React.Component {
           await axios.post('/api/albums', album)
             .then(res => {
               this.props.updateAlbums();
+              this.setState({ artist: '', title: '' });
             }).catch(err => console.log(err));
         }
       });
@@ -45,11 +46,11 @@ class AlbumInput extends React.Component {
         <form id='album-input-form' onSubmit={this.handleAddAlbum}>
           <label id='album-input-artist-label'>
             Artist:
-            <input id='album-input-artist' type='text' name='artist' onChange={this.handleArtistChange}/>
+            <input id='album-input-artist' type='text' name='artist' value={this.state.artist} onChange={this.handleArtistChange}/>
           </label>
           <label id='album-input-title-label'>
             Title:
-            <input id='album-input-title' type='text' name='title' onChange={this.handleTitleChange}/>
+            <input id='album-input-title' type='text' name='title' value={this.state.title} onChange={this.handleTitleChange}/>
           </label>
           <button id='album-input-button' type='submit'>Add Album</button>
         </form>

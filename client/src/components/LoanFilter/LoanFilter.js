@@ -13,17 +13,18 @@ class LoanFilter extends React.Component {
   handleLoanFilter = async event => {
     event.preventDefault();
     this.props.history.push(`/albums/?loanedTo=${this.state.name}`);
+    this.setState({ name: '' });
   };
 
   render() {
     return (
-      <div id='loan-input-component'>
-        <form id='loan-input-form' onSubmit={this.handleLoanFilter}>
-          <label id='loan-input-name-label'>
+      <div id='loan-filter-component'>
+        <form id='loan-filter-form' onSubmit={this.handleLoanFilter}>
+          <label id='loan-filter-name-label'>
             Name:
-            <input id='loan-input-name' type='text' name='name' onChange={this.handleNameChange}/>
+            <input id='loan-filter-name' type='text' name='name' value={this.state.name} onChange={this.handleNameChange}/>
           </label>
-          <button id='loan-input-button' type='submit'>Filter Loans</button>
+          <button id='loan-filter-button' type='submit'>Filter Loans</button>
         </form>
       </div>
     );

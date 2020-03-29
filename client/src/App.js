@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
-import Navbar from './components/Navbar/Navbar'
 import AlbumList from './components/AlbumList/AlbumList';
 import Album from './components/Album/Album'
 import axios from 'axios';
@@ -30,11 +29,6 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <Route exact path="/">{<Redirect to="/albums" />}</Route>
-          <Route
-            render={(routeProps) => (
-              <Navbar {...routeProps} albums={this.state.albums}/>
-            )}
-          />
           <Route
             exact path="/albums"
             render={(routeProps) => (
