@@ -16,6 +16,40 @@ button:focus, input:focus {
   flex-direction: column;
 }
 
+/* Navbar */
+
+#navbar-component {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(175, 175, 175);
+  box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+#navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1030px;
+}
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.navbar-link:hover {
+  text-decoration: underline;
+  text-decoration-color: white;
+  transition: 0.3s;
+}
+
 /* Album List and Loan List*/
 
 #album-list-component, #loan-list-component {

@@ -17,9 +17,9 @@ const AlbumList = (props) => {
 
   return (
     <div id='album-list-component'>
-      <div className='header-container'>
+      {/* <div className='header-container'>
         <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUM MANAGER</h1>
-      </div>
+      </div> */}
       <AlbumInput updateAlbums={props.updateAlbums}/>
       <LoanFilter history={props.history}/>
       <ul id='album-list-container'>

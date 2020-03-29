@@ -7,11 +7,11 @@ const Album = (props) => {
 
   return (
     <div id='album-component'>
-      <div id='album-component-header'>
+      {/* <div id='album-component-header'>
         <h2 className='album-page-title' data-test='album-page-title'>{album.title}</h2>
         <p className='text-separator'> | </p>
         <h3 className='album-page-artist' data-test='album-page-artist'>{album.artist}</h3>
-      </div>
+      </div> */}
       {album.loanedTo === null && <LoanInput album={album} updateAlbum={props.updateAlbum}/>}
       {album.loanedTo !== null && <ReturnInput album={album} updateAlbum={props.updateAlbum}/>}
       <div id='album-container'>
