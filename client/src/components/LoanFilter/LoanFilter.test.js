@@ -11,4 +11,16 @@ describe('LoanFilter', () => {
 
     expect(wrapper.state().name).toEqual('Andrea');
   })
+
+  it('should change the props location path when on form onSubmit', () => {
+    const historyMock = { push: jest.fn() };
+    const props = { history: historyMock };
+    const wrapper = shallow(<LoanFilter {...props}/>);
+
+    wrapper.setState({ name: 'Andrea' });
+    const mockedEvent = { preventDefault() {} };
+    wrapper.instance().handleLoanFilter(mockedEvent);
+
+    expect(historyMock.push.mock.calls[0]).toEqual(['/albums/?loanedTo=Andrea']);
+  })
 });
