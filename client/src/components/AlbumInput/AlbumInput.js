@@ -6,7 +6,7 @@ const lastFmApiKey = require('../../config/keys').lastFmApiKey;
 class AlbumInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { artist: '', title: '' };
+    this.state = { artist: '', title: '', notFound: false };
   };
 
   handleArtistChange = event => {
@@ -23,6 +23,7 @@ class AlbumInput extends React.Component {
     await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
       .then(async res => {
         if (res.data.message === 'Album not found') {
+          this.setState({ artist: '', title: '', notFound: true });
           return
         } else {    
           const album = {
@@ -34,7 +35,7 @@ class AlbumInput extends React.Component {
           await axios.post('/api/albums', album)
             .then(res => {
               this.props.updateAlbums();
-              this.setState({ artist: '', title: '' });
+              this.setState({ artist: '', title: '', notFound: false });
             }).catch(err => console.log(err));
         }
       });
@@ -54,6 +55,7 @@ class AlbumInput extends React.Component {
           </label>
           <button id='album-input-button' type='submit'>Add Album</button>
         </form>
+        {this.state.notFound && <p className='message-to-user'>Album Not Found</p>}
       </div>
     );
   };
