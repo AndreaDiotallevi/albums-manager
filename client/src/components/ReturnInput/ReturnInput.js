@@ -12,7 +12,7 @@ class ReturnInput extends React.Component {
 
     await axios.patch(`/api/albums/${album._id}`, album)
       .then(res => {
-        this.props.updateAlbum();
+        this.props.refreshAlbum();
       }).catch(err => console.log(err));
   };
 

@@ -7,7 +7,7 @@ describe('ReturnInput', () => {
   it('should handle the album return', () => {
     const props = {
       album: { _id: 0, loanedTo: 'Andrea' },
-      updateAlbum: () => {}
+      refreshAlbum: () => {}
     };
 
     const wrapper = shallow(<ReturnInput {...props}/>);

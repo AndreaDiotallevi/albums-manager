@@ -41,7 +41,7 @@ describe('AlbumInput', () => {
       }]
     }))
 
-    const props = { updateAlbums: () => {} };
+    const props = { refreshAlbums: () => {} };
     const wrapper = await shallow(<AlbumInput {...props}/>);
     wrapper.setState({ artist: 'Tycho', title: 'Awake' });
 

@@ -28,7 +28,7 @@ const AlbumList = (props) => {
           </div>
         </div>
       </div>
-      <AlbumInput updateAlbums={props.updateAlbums}/>
+      <AlbumInput refreshAlbums={props.refreshAlbums}/>
       <LoanFilter history={props.history}/>
       <ul id='album-list-container'>
       {filterAlbums().map(album => (

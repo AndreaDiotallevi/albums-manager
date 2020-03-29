@@ -21,8 +21,8 @@ const Album = (props) => {
           </div>
         </div>
       </div>
-      {album.loanedTo === null && <LoanInput album={album} updateAlbum={props.updateAlbum}/>}
-      {album.loanedTo !== null && <ReturnInput album={album} updateAlbum={props.updateAlbum}/>}
+      {album.loanedTo === null && <LoanInput album={album} refreshAlbum={props.refreshAlbum}/>}
+      {album.loanedTo !== null && <ReturnInput album={album} refreshAlbum={props.refreshAlbum}/>}
       <div id='album-container'>
         <img className='album-page-poster' data-test='album-page-poster' src={`${album.posterURL}`} alt={`${album.title}-poster`}></img>
         <ul id='track-list'>

@@ -16,7 +16,7 @@ describe('LoanInput', () => {
   it('should handle the album loan', () => {
     const props = {
       album: { _id: 0, loanedTo: null },
-      updateAlbum: () => {}
+      refreshAlbum: () => {}
     };
 
     const wrapper = shallow(<LoanInput {...props}/>);
