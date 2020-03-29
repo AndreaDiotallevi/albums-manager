@@ -8,15 +8,8 @@ const Album = require('../../models/Album');
 // @desc    Get All Albums
 // @access  Public
 router.get('/', (req, res) => {
-  let loanedTo = req.query.loanedTo;
-
-  if (loanedTo === undefined) {
-    Album.find()
-      .then(albums => res.json(albums))
-  } else {
-    Album.find({ loanedTo: loanedTo })
-      .then(albums => res.json(albums))
-  };
+  Album.find()
+    .then(albums => res.json(albums));
 });
 
 // @route   POST api/albums
@@ -33,6 +26,9 @@ router.post('/', (req, res) => {
   newAlbum.save().then(album => res.json(album));
 });
 
+// @route   PATCH api/albums
+// @desc    Update An Album
+// @access  Public
 router.patch('/:id', async (req, res) => {
   const album = await Album.findById(req.params.id);
 
