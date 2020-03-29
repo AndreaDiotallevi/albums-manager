@@ -31,6 +31,8 @@ The application is not yet deployed.
 
 * Build a full-stack web app with the MERN stack (MongoDB, Express, React and Node).
 * Connect the React single page app with the Express backend via proxy.
+* Use the axios npm package to send asynchronous api calls in React.
+* Use the queryString npm package to access the search parameters in React.
 * Fully test the express API endpoints with Jest and Supertest.
 * Fully test the React components with Jest and Enzyme.
 * Use the Last.fm API to fetch album info.
