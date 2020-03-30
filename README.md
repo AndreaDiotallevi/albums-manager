@@ -92,6 +92,9 @@ I'd like to be able to filter the albums my loaned name.
 * Install MongoDB locally with ```brew tap mongodb/brew``` && ```brew install mongodb-community```
 * Start MongoDB with ```brew services run mongodb-community```
 * Start the Mongo shell with ```mongo```
+* If not working, refer to the following guides for installing MongoDB:
+  - [MAC](https://zellwk.com/blog/install-mongodb/)
+  - [WINDOWS](https://treehouse.github.io/installation-guides/windows/mongo-windows.html)
 
 ## How to Run the Tests
 
