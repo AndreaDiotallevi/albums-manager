@@ -8,7 +8,7 @@ This is a full-stack application built with the MERN stack that lets a user mana
 
 ## Live Website
 
-The application is not yet deployed.
+The application is deployed to Heroku at [https://albums-manager.herokuapp.com](https://albums-manager.herokuapp.com/).
 
 ## Technologies Used
 
