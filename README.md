@@ -158,7 +158,13 @@ So that I can remember when a loaned album has been returned,
 I'd like to be able to mark an album as returned.
 ```
 
+#### Unit Testing
+
+Both the backend and frontend are fully tested, with supertest, jest and enzyme. All asynchronous calls have been mocked.
+
+[![CircleCI](https://circleci.com/gh/AndreaDiotallevi/albums-manager.svg?style=shield)](https://circleci.com/gh/AndreaDiotallevi/albums-manager)
+
 #### Bonus Features to Implement Next
 
 * Authentication: add a user model and users collection and extend the application to multiple users
-* Additional links on the album page: add tracks links maybe with the Youtube API
+* Additional links on the album page: add tracks links with the Youtube API
