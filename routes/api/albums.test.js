@@ -4,11 +4,16 @@ const request = supertest(app);
 const mongoose = require('mongoose');
 const Album = require('../../models/Album');
 
+global.Date.now = jest.fn(() => new Date('2020-01-01T01:01:01Z').getTime());
+
 beforeAll(async () => {
-  const url = `mongodb://127.0.0.1/albums-manager`;
+  const url = 'mongodb://127.0.0.1/albums-manager-test';
   await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
-  global.Date.now = jest.fn(() => new Date('2020-01-01T01:01:01Z').getTime())
 });
+
+beforeEach(async () => {
+  await Album.deleteMany();
+})
 
 describe('/api/albums', () => {
   it('should get an empty array', async () => {
@@ -100,8 +105,4 @@ describe('/api/albums', () => {
     expect(response.body.loanedDate).toEqual('2020-01-01T01:01:01.000Z');
   });
 
-});
-
-afterEach(async () => {
-  await Album.deleteMany();
 });

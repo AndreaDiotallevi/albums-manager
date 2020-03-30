@@ -49,7 +49,7 @@ describe('AlbumInput', () => {
     form.simulate('submit', { preventDefault() {} });
 
     expect(mockAxios.get).toHaveBeenCalledTimes(1);
-    expect(mockAxios.get).toHaveBeenCalledWith(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=Tycho&album=Awake&format=json`);
+    expect(mockAxios.get).toHaveBeenCalledWith(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=Tycho&album=Awake&format=json`);
   });
 });
 
