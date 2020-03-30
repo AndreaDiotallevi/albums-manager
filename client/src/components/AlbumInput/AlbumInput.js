@@ -20,7 +20,7 @@ class AlbumInput extends React.Component {
   handleAddAlbum = async event => {
     event.preventDefault();
 
-    await axios.get(`http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
+    await axios.get(`https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=${lastFmApiKey}&artist=${this.state.artist}&album=${this.state.title}&format=json`)
       .then(async res => {
         if (res.data.message === 'Album not found') {
           this.setState({ artist: '', title: '', notFound: true });
