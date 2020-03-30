@@ -21,7 +21,9 @@ jobs: # a collection of steps
           paths:
             - ./node_modules
             - ./client/node_modules
-      - run: # run tests
+      - run: # run client tests
           name: test
           command: npm run client-test
+      - run: # run sever tests
+          name: test
           command: npm test
