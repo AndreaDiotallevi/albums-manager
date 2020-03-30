@@ -160,9 +160,7 @@ I'd like to be able to mark an album as returned.
 
 #### Unit Testing
 
-Both the backend and frontend are fully tested, with supertest, jest and enzyme. All asynchronous calls have been mocked.
-
-[![CircleCI](https://circleci.com/gh/AndreaDiotallevi/albums-manager.svg?style=shield)](https://circleci.com/gh/AndreaDiotallevi/albums-manager)
+Both the backend and frontend are fully [tested](https://circleci.com/gh/AndreaDiotallevi/albums-manager), with supertest, jest and enzyme. All asynchronous calls have been mocked.
 
 #### Bonus Features to Implement Next
 
