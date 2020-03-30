@@ -7,8 +7,8 @@
     "client-install": "npm install --prefix client",
     "test": "jest --detectOpenHandles --watch",
     "client-test": "npm test --prefix client -- --coverage",
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node start.js",
+    "server": "nodemon start.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
