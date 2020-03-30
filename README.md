@@ -1,6 +1,6 @@
 # Albums Manager
 
-[Description](#description) | [Live Website](#live-website) | [Technologies Used](#technologies-used) | [Challenges and Goals](#challenges-and-goals) | [Features](#features) | [User Stories](#user-stories) | [Getting Started](#getting-started) | [How to Setup the Local Database](#how-to-setup-the-local-database) | [How to Run the Tests](#how-to-run-the-tests) | [How to Run the App](#how-to-run-the-app) | [Design Approach](#design-approach) | [Continuous Integration](#continuous-integration)
+[Description](#description) | [Live Website](#live-website) | [Technologies Used](#technologies-used) | [Challenges and Goals](#challenges-and-goals) | [Features](#features) | [User Stories](#user-stories) | [Getting Started](#getting-started) | [How to Run the App](#how-to-run-the-app) | [How to Setup the Local Database](#how-to-setup-the-local-database) | [How to Run the Tests](#how-to-run-the-tests) | [Design Approach](#design-approach) | [Continuous Integration](#continuous-integration)
 
 ## Description
 
@@ -81,6 +81,12 @@ I'd like to be able to filter the albums my loaned name.
 * Install all the back-end dependencies with ```npm install```
 * Install all the front-end dependencies with ```npm run client-install```
 
+## How to Run the App
+
+* To start the Express server type ```npm run server```
+* To start the React server type ```npm run client```
+* To start both servers concurrently type ```npm run dev```
+
 ## How to Setup the Local Database
 
 * Install MongoDB locally with ```brew tap mongodb/brew``` && ```brew install mongodb-community```
@@ -91,12 +97,6 @@ I'd like to be able to filter the albums my loaned name.
 
 * To run all the express API endpoints tests type ```npm test```
 * To run all the React components tests type ```npm run client-test```
-
-## How to Run the App
-
-* To start the Express server type ```npm run server```
-* To start the React server type ```npm run client```
-* To start both servers concurrently type ```npm run dev```
 
 ## Design Approach
 
