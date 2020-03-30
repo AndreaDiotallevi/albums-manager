@@ -94,7 +94,7 @@ I'd like to be able to filter the albums my loaned name.
 
 ## How to Run the App
 
-* To start the Express server type ```npm server```
+* To start the Express server type ```npm run server```
 * To start the React server type ```npm run client```
 * To start both servers concurrently type ```npm run dev```
 
