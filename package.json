@@ -7,10 +7,11 @@
     "client-install": "npm install --prefix client",
     "test": "jest --detectOpenHandles --watch",
     "client-test": "npm test --prefix client -- --coverage",
-    "start": "node start.js",
-    "server": "nodemon start.js",
+    "start": "node index.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Andrea Diotallevi",
   "license": "MIT",
@@ -30,5 +31,8 @@
       "/node_modules/",
       "/client/"
     ]
+  },
+  "engines": {
+    "node": "12.16.1"
   }
 }

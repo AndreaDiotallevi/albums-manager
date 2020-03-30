@@ -1,2 +1,7 @@
 node_modules
 coverage
+.DS_Store
+.env
+*.orig
+.idea/
+.vscode/
