@@ -157,3 +157,8 @@ As a user,
 So that I can remember when a loaned album has been returned,
 I'd like to be able to mark an album as returned.
 ```
+
+#### Bonus Features to Implement Next
+
+* Authentication: add a user model and users collection and extend the application to multiple users
+* Additional links on the album page: add tracks links maybe with the Youtube API
