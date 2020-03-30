@@ -104,7 +104,7 @@ The React single page application is composed by 6 components, each one handling
       
       - ```LoanFilter```: it handles the user loan name search and changes the URL by adding the query parameter to ```albums/?loanedTo=name```
       
-    - ```Album```: it renders the selected album information on the ```albums/:id``` page. I also contains the two children components ```LoanInput``` and ```ReturnInput```.
+    - ```Album```: it renders the selected album information on the ```albums/:id``` page. It also contains the two children components ```LoanInput``` and ```ReturnInput```.
     
       - ```LoanInput```: it handles the user loan name input and sends a patch request to the server.
       
