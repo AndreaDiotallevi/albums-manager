@@ -25,5 +25,8 @@ jobs: # a collection of steps
           name: test
           command: npm run client-test
       - run: # run sever tests
+          environment: &test-environment
+            TEST_MODE: "true"
+            MONGO_URL: mongodb://localhost:27017/albums-manager
           name: test
           command: npm test
