@@ -1,6 +1,6 @@
 # Albums Manager
 
-[Description](#description) | [Live Website](#live-website) | [Technologies Used](#technologies-used) | [Challenges and Goals](#challenges-and-goals) | [Features](#features) | [User Stories](#user-stories) | [Getting Started](#getting-started) | [How to Run the App](#how-to-run-the-app) | [How to Setup the Local Database](#how-to-setup-the-local-database) | [How to Run the Tests](#how-to-run-the-tests) | [Design Approach](#design-approach) | [Continuous Integration](#continuous-integration)
+[Description](#description) | [Live Website](#live-website) | [Technologies Used](#technologies-used) | [Challenges and Goals](#challenges-and-goals) | [Getting Started](#getting-started) | [How to Run the App](#how-to-run-the-app) | [How to Setup the Local Database](#how-to-setup-the-local-database) | [How to Run the Tests](#how-to-run-the-tests) | [Continuous Integration](#continuous-integration) | [Design Approach](#design-approach)
 
 ## Description
 
@@ -37,43 +37,6 @@ The application is not yet deployed.
 * Fully test the React components with Jest and Enzyme.
 * Use the Last.fm API to fetch album info.
 
-## Features
-
-* A user can view all his albums.
-* A user can add a new album.
-* A user can see any album's artist, title, poster and tracks.
-* A user can loan an album to a friend and save the friend's name and date to the album.
-* A user can mark a loaned album as returned.
-* A user can filter the albums that have been loaned to a specific friend.
-
-## User Stories
-
-```
-As a user,
-So that I can keep track of all my albums,
-I'd like to see a list with all my albums.
-
-As a user,
-So that I can keep my album list up to date,
-I'd like to be able to add a new album to the list.
-
-As a user,
-So that I can check an album info,
-I'd like to be able to click on an album and see all the info.
-
-As a user,
-So that I can remember when I have loaned an album to a friend,
-I'd like to be able to mark an album as loaned with the friend's name and date.
-
-As a user,
-So that I can remember when a loaned album has been returned,
-I'd like to be able to mark an album as returned.
-
-As a user,
-So that I can see the albums that have been loaned to a specific friend,
-I'd like to be able to filter the albums my loaned name.
-```
-
 ## Getting Started
 
 * Clone this repository and change into it
@@ -101,10 +64,96 @@ I'd like to be able to filter the albums my loaned name.
 * To run all the express API endpoints tests type ```npm test```
 * To run all the React components tests type ```npm run client-test```
 
-## Design Approach
-
-[...]
-
 ## Continuous Integration
 
 [CircleCI](https://circleci.com/): tool for automating the development process quickly, safely, and at scale.
+
+## Design Approach
+
+#### Overview
+
+This application is built with the MERN stack: MongoDB, Express, React and Node. The client is a React single page application that communicates with the Express server via a RESTful API, handling data from / to the MongoDB database. I have then used the Last.Fm API to validate user input and gather album information.
+
+#### MongoDB Database Schema
+
+The only model is ```Album```, with the following fields:
+  - ```artist``` (String)
+  - ```title``` (String)
+  - ```posterURL``` (String)
+  - ```tracks``` (Array)
+  - ```loanedTo``` (String)
+  - ```loanedDate``` (Date)
+  
+#### Express RESTful API
+
+The Express API provides three RESTful endpoints:
+  - GET ```/api/albums``` to fetch all the albums
+  - POST ```/api/albums``` to add a new album
+  - PATCH ```/api/albums/:id``` to update an existing album, when it is loaned and when it is returned
+  
+  
+#### React Client
+
+The React single page application is composed by 6 components, each one handling one responsibility:
+
+  - ```App```: this is the main component that is rendered in the ```root``` HTML tag. It is responsible for fetching the album list at ```ComponentDidMount()``` and passing the props down to the ```AlbumList``` and ```Album``` components.
+  
+    - ```AlbumList```: it renders the list of albums on the ```/albums``` page. It also contains the two children components ```AlbumInput``` and ```LoanFilter```.
+    
+      - ```AlbumInput```: it handles the user album input and sends a post request to the server upon album validation.
+      
+      - ```LoanFilter```: it handles the user loan name search and changes the URL by adding the query parameter to ```albums/?loanedTo=name```
+      
+    - ```Album```: it renders the selected album information on the ```albums/:id``` page. I also contains the two children components ```LoanInput``` and ```ReturnInput```.
+    
+      - ```LoanInput```: it handles the user loan name input and sends a patch request to the server.
+      
+      - ```ReturnInput```: it handles the user return input and sends a patch request to the server.
+      
+#### Features
+
+* The user can view all his albums at ```/albums```
+* The user can add a new album by filling the input field and clicking ```ADD ALBUM```
+* The user is notified if he / she enters a non-existent album with the message ```Album Not Found```
+* The user can filter the albums that have been loaned to a specific friend by filling the input field and clicking ```FILTER LOANS```
+* The user can click on any album's title or poster and view all the album information at ```/albums/:id```
+* The user can loan an album and add name and date to the album by filling the input field and clicking ```LOAN IT TO A FRIEND```
+* The user can mark the loaned album as returned by clicking ```MARK AS RETURNED```
+
+#### User Stories
+
+```
+As a user,
+So that I can keep track of all my albums,
+I'd like to see a list with all my albums.
+```
+```
+As a user,
+So that I can keep my album list up to date,
+I'd like to be able to add a new album to the list.
+```
+```
+As a user,
+So that I know if I am looking for the wrong album,
+I'd like to see a useful message when entering a non-existent album.
+```
+```
+As a user,
+So that I can see the albums that have been loaned to a specific friend,
+I'd like to be able to filter the albums my loaned name.
+```
+```
+As a user,
+So that I can check an album info,
+I'd like to be able to click on an album and see all the info.
+```
+```
+As a user,
+So that I can remember when I have loaned an album to a friend,
+I'd like to be able to mark an album as loaned with the friend's name and date.
+```
+```
+As a user,
+So that I can remember when a loaned album has been returned,
+I'd like to be able to mark an album as returned.
+```
