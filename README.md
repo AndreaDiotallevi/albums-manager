@@ -162,7 +162,8 @@ I'd like to be able to mark an album as returned.
 
 Both the backend and frontend are fully [tested](https://circleci.com/gh/AndreaDiotallevi/albums-manager), with supertest, jest and enzyme. All asynchronous calls have been mocked.
 
-#### Bonus Features to Implement Next
+#### Features to Implement Next
 
+* Mobile responsive layout
 * Authentication: add a user model and users collection and extend the application to multiple users
 * Additional links on the album page: add tracks links with the Youtube API
