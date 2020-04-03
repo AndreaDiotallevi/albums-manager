@@ -1,6 +1,8 @@
 version: 2.1 # use CircleCI 2.1
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
+    environment:
+      CC_TEST_REPORTER_ID: 9677962b5c16fa528bb3c7809e5d76f31dd7bc63240aa1980e5dc32d365e6ca5
     working_directory: ~/albums-manager # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:10.16.3 # ...with this image as the primary container; this is where all `steps` will run
@@ -16,11 +18,20 @@ jobs: # a collection of steps
       - run:
           name: setup dependencies
           command: npm install && npm run client-install
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
             - ./client/node_modules
       - run: # run tests
-          name: test
-          command: npm run client-test
+          name: Run Test and Coverage
+          command: |
+            ./cc-test-reporter before-build
+            npm run client-test
+            ./cc-test-reporter after-build --exit-code $?
+            
