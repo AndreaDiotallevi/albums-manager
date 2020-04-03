@@ -1,6 +1,8 @@
 version: 2.1 # use CircleCI 2.1
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
+    environment:
+      CC_TEST_REPORTER_ID: 9677962b5c16fa528bb3c7809e5d76f31dd7bc63240aa1980e5dc32d365e6ca5
     working_directory: ~/albums-manager # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:10.16.3 # ...with this image as the primary container; this is where all `steps` will run
