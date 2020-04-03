@@ -33,4 +33,4 @@ jobs: # a collection of steps
           command: |
             ./cc-test-reporter before-build
             npm run client-test
-            ./cc-test-reporter after-build --exit-code $?
+            ./cc-test-reporter after-build -t lcov --exit-code $?
