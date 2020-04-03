@@ -31,8 +31,7 @@ jobs: # a collection of steps
       - run: # run tests
           name: Run Test and Coverage
           command: |
-            ./cc-test-reporter before-build
-            cd client
-            npm test -- --coverage
-            ./cc-test-reporter after-build --exit-code $?
+            ./client/cc-test-reporter before-build
+            npm run client-test
+            ./client/cc-test-reporter after-build --exit-code $?
             
