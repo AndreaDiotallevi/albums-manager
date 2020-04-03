@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/AndreaDiotallevi/albums-manager.svg?style=shield)](https://circleci.com/gh/AndreaDiotallevi/albums-manager)
+
 # Albums Manager
 
 [Description](#description) | [Live Website](#live-website) | [Technologies Used](#technologies-used) | [Challenges and Goals](#challenges-and-goals) | [Getting Started](#getting-started) | [How to Run the App](#how-to-run-the-app) | [How to Setup the Local Database](#how-to-setup-the-local-database) | [How to Run the Tests](#how-to-run-the-tests) | [Continuous Integration](#continuous-integration) | [Design Approach](#design-approach)
