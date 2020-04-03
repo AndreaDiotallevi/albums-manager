@@ -3,6 +3,7 @@ jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     environment:
       CC_TEST_REPORTER_ID: 9677962b5c16fa528bb3c7809e5d76f31dd7bc63240aa1980e5dc32d365e6ca5
+      MONGO_URI: mongodb://localhost:27017/albums-manager-test
     working_directory: ~/albums-manager # directory where steps will run
     docker: # run the steps with Docker
       - image: circleci/node:10.16.3 # ...with this image as the primary container; this is where all `steps` will run
@@ -32,6 +33,6 @@ jobs: # a collection of steps
           name: Run Test and Coverage
           command: |
             ./cc-test-reporter before-build
-            npm test --prefix client -- --coverage
+            npm test -- --coverage
             ./cc-test-reporter after-build --exit-code $?
             
