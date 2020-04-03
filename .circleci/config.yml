@@ -33,3 +33,4 @@ jobs: # a collection of steps
           command: |
             ./cc-test-reporter before-build
             npm run client-test
+            ./cc-test-reporter upload-coverage || true
