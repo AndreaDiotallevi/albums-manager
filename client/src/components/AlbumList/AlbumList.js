@@ -21,10 +21,9 @@ const AlbumList = (props) => {
       <div className='header-container'>
         <div className='navbar'>
           <div className='navbar-left'>
-            <h1 className='albums-page-title' data-test='albums-page-title'>YOUR ALBUM MANAGER</h1>
-          </div>
-          <div className='navbar-right'>
-            <Link to='/albums' className='navbar-link'>ALBUMS</Link>
+            <Link to='/albums' className='react-link'>
+              <h1 className='albums-page-title' data-test='albums-page-title'>ALBUMS MANAGER</h1>
+            </Link>
           </div>
         </div>
       </div>

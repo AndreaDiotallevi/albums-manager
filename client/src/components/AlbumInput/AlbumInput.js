@@ -45,17 +45,11 @@ class AlbumInput extends React.Component {
     return (
       <div id='album-input-component'>
         <form id='album-input-form' onSubmit={this.handleAddAlbum}>
-          <label id='album-input-artist-label'>
-            Artist:
-            <input id='album-input-artist' type='text' name='artist' value={this.state.artist} onChange={this.handleArtistChange}/>
-          </label>
-          <label id='album-input-title-label'>
-            Title:
-            <input id='album-input-title' type='text' name='title' value={this.state.title} onChange={this.handleTitleChange}/>
-          </label>
+          <input id='album-input-artist' type='text' name='artist' placeholder="Album's artist" value={this.state.artist} onChange={this.handleArtistChange}/>
+          <input id='album-input-title' type='text' name='title' placeholder="Album's title" value={this.state.title} onChange={this.handleTitleChange}/>
           <button id='album-input-button' type='submit'>Add Album</button>
         </form>
-        {this.state.notFound && <p className='message-to-user'>Album Not Found</p>}
+        {this.state.notFound && <p className='message-to-user'>Not Found</p>}
       </div>
     );
   };

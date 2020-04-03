@@ -23,11 +23,15 @@ class ReturnInput extends React.Component {
   render() {
     return (
       <div id='return-input-component'>
-        <p className='loaned-to-text'>Loaned to {this.props.album.loanedTo}</p>
-        <p className='loaned-date-text'>{`(${this.formatDate()})`}</p>
-        <form id='return-input-form' onSubmit={this.handleReturnAlbum}>
-          <button id='return-input-button' type='submit'>Mark As Returned</button>
-        </form>
+        <div id='return-input-container'>
+          <span>
+            <p className='loaned-to-text'>Loaned to {this.props.album.loanedTo}</p>
+            <p className='loaned-date-text'>{`(${this.formatDate()})`}</p>
+          </span>
+          <form id='return-input-form' onSubmit={this.handleReturnAlbum}>
+            <button id='return-input-button' type='submit'>Mark As Returned</button>
+          </form>
+        </div>
       </div>
     );
   };

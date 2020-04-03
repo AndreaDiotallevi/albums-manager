@@ -20,10 +20,7 @@ class LoanFilter extends React.Component {
     return (
       <div id='loan-filter-component'>
         <form id='loan-filter-form' onSubmit={this.handleLoanFilter}>
-          <label id='loan-filter-name-label'>
-            Name:
-            <input id='loan-filter-name' type='text' name='name' value={this.state.name} onChange={this.handleNameChange}/>
-          </label>
+            <input id='loan-filter-name' type='text' name='name' placeholder="Borrower's name" value={this.state.name} onChange={this.handleNameChange}/>
           <button id='loan-filter-button' type='submit'>Filter Loans</button>
         </form>
       </div>

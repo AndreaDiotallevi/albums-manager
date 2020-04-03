@@ -3,11 +3,11 @@ import { shallow } from 'enzyme';
 import AlbumList from './AlbumList';
 
 describe('AlbumList', () => {
-  it('should render the title YOUR ALBUMS', () => {
+  it('should render the title ALBUMS MANAGER', () => {
     const props = { albums: [], location: { search: {} } };
     const wrapper = shallow(<AlbumList {...props} />);
 
-    expect(wrapper.find("[data-test='albums-page-title']").text()).toEqual('YOUR ALBUM MANAGER');
+    expect(wrapper.find("[data-test='albums-page-title']").text()).toEqual('ALBUMS MANAGER');
   });
 
   it('should render the album title and artist', () => {

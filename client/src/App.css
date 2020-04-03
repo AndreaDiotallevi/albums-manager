@@ -7,8 +7,17 @@
   font-size: 16px;
 }
 
+span {
+  display: flex;
+  margin-bottom: 20px;
+}
+
 button:focus, input:focus {
   outline:0;
+}
+
+.react-link {
+  text-decoration: none;
 }
 
 .App {
@@ -140,66 +149,62 @@ button:focus, input:focus {
 
 form {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   height: 45px;
+  width: 582px;
+}
+
+#loan-input-form {
+  width: 500px;
+}
+
+.loaned-date-text {
+  margin-left: 10px;
+}
+
+#return-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 500px;
+}
+
+#return-input-form {
+  width: auto;
 }
 
 #album-input-artist, #album-input-title, #loan-input-name, #loan-filter-name {
   border-bottom: 1px solid rgb(175, 175, 175);
-  margin-left: 10px;
   margin-bottom: 20px;
+  width: 181px;
 }
 
-#album-input-artist-label, #loan-input-name-label, #loan-filter-name-label {
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 5px 0;
+#loan-filter-name {
+  width: 382px;
 }
 
-#album-input-title-label {
-  text-transform: lowercase;
-  padding: 5px 0;
-  margin-left: 40px;
-}
-
-label {
-  display: flex;
-  justify-content: stretch;
-  width: 230px;
-}
-
-input {
-  width: 230px;
+#loan-input-name {
+  width: 300px;
 }
 
 #album-input-button, #loan-input-button, #return-input-button, #loan-filter-button {
   background-color: rgb(175, 175, 175);
   color: white;
-  font-weight: 500;
-  padding: 5px;
-  text-transform: uppercase;
   box-shadow: 1px -1px 7px 0 rgba(0, 0, 0, 0.2);
-  margin-left: 40px;
   cursor: pointer;
+  text-transform: uppercase;
+  border: 1px solid rgb(175, 175, 175);
+  width: 180px;
 }
 
-#album-input-button:hover, #loan-input-button:hover, #return-input-button:hover {
+#album-input-button:hover, #loan-input-button:hover, #return-input-button:hover, #loan-filter-button:hover {
   color: black;
   transition: 0.3s;
 }
 
-.loaned-to-text {
-  margin-right: 5px;
-  padding: 5px 0;
-}
-
-.loaned-date-text {
-  padding: 5px 0;
-}
-
 .message-to-user {
-  padding: 5px;
-  margin-left: 40px;
+  margin-left: 20px;
   color: rgb(175, 175, 175);
 }
 
@@ -244,9 +249,9 @@ input {
 
 #album-container {
   display: flex;
-  justify-content: center;
   justify-content: space-between;
   margin-top: 60px;
+  margin-bottom: 60px;
   width: 1030px;
 }
 
@@ -268,4 +273,64 @@ input {
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+
+@media (max-width: 1070px) {
+  .navbar, #album-list-container, #album-input-component, #loan-input-component, #return-input-component, #loan-filter-component, #album-container {
+    width: 680px;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar, #album-list-container, #album-input-component, #loan-input-component, #return-input-component, #loan-filter-component, #album-container {
+    width: 310px;
+    height: auto;
+  }
+
+  #album-input-component {
+    flex-direction: column;
+    margin-bottom: 50px;
+    width: 310px;
+  }
+
+  #return-input-container {
+    flex-direction: column;
+    width: 310px;
+  }
+
+  form {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #album-input-artist, #album-input-title, #loan-input-name, #loan-filter-name {
+    width: 310px;
+  }
+
+  #loan-filter-name {
+    width: 310px;
+  }
+
+  .message-to-user {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  #album-container {
+    flex-direction: column;
+  }
+
+  .album-page-poster {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+  
+  #track-list {
+    width: auto;
+  }
+
+  .album-page-artist {
+    font-size: 20px;
+  }
 }

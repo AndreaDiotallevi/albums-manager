@@ -27,12 +27,9 @@ class LoanInput extends React.Component {
     return (
       <div id='loan-input-component'>
         <form id='loan-input-form' onSubmit={this.handleLoanAlbum}>
-        <label id='loan-input-name-label'>
-          Name:
-          <input id='loan-input-name' type='text' name='name' onChange={this.handleNameChange}/>
-        </label>
-        <button id='loan-input-button' type='submit'>Loan It To A Friend</button>
-      </form>
+          <input id='loan-input-name' type='text' name='name' placeholder="Borrower's name" onChange={this.handleNameChange}/>
+          <button id='loan-input-button' type='submit'>Loan It To A Friend</button>
+        </form>
       </div>
     );
   };
