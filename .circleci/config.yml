@@ -30,4 +30,6 @@ jobs: # a collection of steps
             - ./client/node_modules
       - run: # run tests
           name: test
-          command: npm run client-test
+          command: |
+            ./cc-test-reporter before-build
+            npm run client-test
